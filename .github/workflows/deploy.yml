@@ -1,0 +1,105 @@
+name: Prime Success CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      skip_ci:
+        description: 'Skip CI checks before deploy (Emergency only)'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: primesuccess-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    name: Prime Success CI (Lint, Typecheck, Next Build & Docker Validation)
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.skip_ci != 'true' }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript Type Check
+        run: npm run typecheck
+
+      - name: Verify Next.js Production Build
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          NODE_ENV: production
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Validate Docker Image Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: primesuccess-web:ci-test
+
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    needs: ci
+    if: ${{ always() && (github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')) && (github.event.inputs.skip_ci == 'true' || needs.ci.result == 'success') }}
+    permissions:
+      contents: read
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          script: |
+            set -e
+            echo "🚀 Starting Prime Success Deployment on VPS..."
+            cd /var/www/prime-success
+
+            echo "🌐 Ensuring Docker network 'app-net' exists..."
+            docker network inspect app-net >/dev/null 2>&1 || docker network create app-net
+
+            echo "📥 Fetching latest code..."
+            git fetch origin main
+            git reset --hard FETCH_HEAD
+
+            echo "🔒 Ensuring data directory permissions..."
+            mkdir -p data/resumes
+            chmod -R 777 data
+
+            echo "🐳 Building & restarting Docker container..."
+            docker compose up -d --build --remove-orphans
+
+            echo "🧹 Cleaning unused docker images..."
+            docker image prune -f
+
+            echo "🔍 Verifying primesuccess-web container status..."
+            sleep 6
+            docker ps --filter "name=primesuccess-web" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+            echo "✅ Prime Success deployment completed successfully!"

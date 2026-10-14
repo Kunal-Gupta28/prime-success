@@ -1,0 +1,42 @@
+name: primesuccess
+
+services:
+  web:
+    container_name: primesuccess-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: primesuccess-web:latest
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8087}:3000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - SMTP_HOST=${SMTP_HOST:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - SMTP_FROM=${SMTP_FROM:-}
+      - HR_EMAIL=${HR_EMAIL:-}
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - JWT_SECRET=${JWT_SECRET:-dev-only-change-this-secret-before-deploying-6f9a2c8e1b4d7f3a}
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 25s
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    external: true
