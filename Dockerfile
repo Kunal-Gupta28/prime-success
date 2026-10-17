@@ -56,7 +56,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Prepare /app/data directory structure with permissions for nextjs user
 RUN mkdir -p /app/data/resumes && chown -R nextjs:nodejs /app/data
-COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
 USER nextjs
 
