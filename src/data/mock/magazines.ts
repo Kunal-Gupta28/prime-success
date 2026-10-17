@@ -2,6 +2,75 @@ import { MagazineIssue } from "@/types";
 
 export const magazinesData: MagazineIssue[] = [
   {
+    "id": "issue-2026-09-02",
+    "slug": "prime-success-magazine-2026-09-issue-02",
+    "issueNumber": "Issue 09-02",
+    "title": "PRIME SUCCESS · SEPTEMBER 2026",
+    "subtitle": "Official Fortnightly Print & Digital Release — 2nd Fortnightly Edition (2026)",
+    "monthYear": "SEPTEMBER 2026",
+    "category": "LEADERSHIP & GOVERNANCE",
+    "coverImage": "/images/magazines/cover-2026-09-issue-02.jpg",
+    "pdfUrl": "https://drive.google.com/file/d/1rRk7eljEDBnHtyhe9iwLDL6EUoSTsEb3/view",
+    "pagesCount": 31,
+    "prgiRegNo": "DELENG/2023/90580",
+    "description": "Official digitized fortnightly print edition of Prime Success Media (September 2026, 2nd Fortnightly Edition). Registered with the Press Registrar General of India.",
+    "tableOfContents": [
+      { "page": 1, "title": "Cover Feature & Publisher's Mandate — September 2026", "category": "EDITORIAL" },
+      { "page": 8, "title": "National Leadership & Governance Dispatches", "category": "GOVERNANCE" },
+      { "page": 16, "title": "Industrial Innovation & Infrastructure Corridors", "category": "INNOVATION" },
+      { "page": 24, "title": "Public Opinion Polls & Verified Survey Insights", "category": "POLLS" },
+      { "page": 31, "title": "Laureates Hall of Fame & PRGI Compliance", "category": "HONORS" }
+    ],
+    "isCurrentIssue": true,
+    "isFeatured": true
+  },
+  {
+    "id": "issue-2026-09-01",
+    "slug": "prime-success-magazine-2026-09-issue-01",
+    "issueNumber": "Issue 09-01",
+    "title": "PRIME SUCCESS · SEPTEMBER 2026",
+    "subtitle": "Official Fortnightly Print & Digital Release — 1st Fortnightly Edition (2026)",
+    "monthYear": "SEPTEMBER 2026",
+    "category": "SPECIAL PRINT EDITION",
+    "coverImage": "/images/magazines/cover-2026-09-issue-01.jpg",
+    "pdfUrl": "https://drive.google.com/file/d/1d9uA2n3qr15-vGTV4hA7lVrGRdm-ftsK/view",
+    "pagesCount": 38,
+    "prgiRegNo": "DELENG/2023/90580",
+    "description": "Official digitized fortnightly print edition of Prime Success Media (September 2026, 1st Fortnightly Edition). Registered with the Press Registrar General of India.",
+    "tableOfContents": [
+      { "page": 1, "title": "Cover Feature & Publisher's Mandate — September 2026", "category": "EDITORIAL" },
+      { "page": 8, "title": "National Leadership & Governance Dispatches", "category": "GOVERNANCE" },
+      { "page": 16, "title": "Industrial Innovation & Infrastructure Corridors", "category": "INNOVATION" },
+      { "page": 24, "title": "Public Opinion Polls & Verified Survey Insights", "category": "POLLS" },
+      { "page": 38, "title": "Laureates Hall of Fame & PRGI Compliance", "category": "HONORS" }
+    ],
+    "isCurrentIssue": false,
+    "isFeatured": true
+  },
+  {
+    "id": "issue-2026-08-02",
+    "slug": "prime-success-magazine-2026-08-issue-02",
+    "issueNumber": "Issue 08-02",
+    "title": "PRIME SUCCESS · AUGUST 2026",
+    "subtitle": "Official Fortnightly Print & Digital Release — 2nd Fortnightly Edition (2026)",
+    "monthYear": "AUGUST 2026",
+    "category": "LEADERSHIP & GOVERNANCE",
+    "coverImage": "/images/magazines/cover-2026-08-issue-02.jpg",
+    "pdfUrl": "https://drive.google.com/file/d/1DL8mFm-Gl3WrRhNm4KHVlEjQspb3hQcr/view",
+    "pagesCount": 27,
+    "prgiRegNo": "DELENG/2023/90580",
+    "description": "Official digitized fortnightly print edition of Prime Success Media (August 2026, 2nd Fortnightly Edition). Registered with the Press Registrar General of India.",
+    "tableOfContents": [
+      { "page": 1, "title": "Cover Feature & Publisher's Mandate — August 2026", "category": "EDITORIAL" },
+      { "page": 8, "title": "National Leadership & Governance Dispatches", "category": "GOVERNANCE" },
+      { "page": 16, "title": "Industrial Innovation & Infrastructure Corridors", "category": "INNOVATION" },
+      { "page": 24, "title": "Public Opinion Polls & Verified Survey Insights", "category": "POLLS" },
+      { "page": 27, "title": "Laureates Hall of Fame & PRGI Compliance", "category": "HONORS" }
+    ],
+    "isCurrentIssue": false,
+    "isFeatured": true
+  },
+  {
     "id": "issue-2026-08-01",
     "slug": "prime-success-magazine-2026-08-issue-01",
     "issueNumber": "Issue 08-01",
@@ -41,7 +110,7 @@ export const magazinesData: MagazineIssue[] = [
         "category": "HONORS"
       }
     ],
-    "isCurrentIssue": true,
+    "isCurrentIssue": false,
     "isFeatured": true
   },
   {
@@ -170,7 +239,7 @@ export const magazinesData: MagazineIssue[] = [
         "category": "HONORS"
       }
     ],
-    "isCurrentIssue": true,
+    "isCurrentIssue": false,
     "isFeatured": true
   },
   {
@@ -213,7 +282,7 @@ export const magazinesData: MagazineIssue[] = [
         "category": "HONORS"
       }
     ],
-    "isCurrentIssue": true,
+    "isCurrentIssue": false,
     "isFeatured": true
   },
   {
