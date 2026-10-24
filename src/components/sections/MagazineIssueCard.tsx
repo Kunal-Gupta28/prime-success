@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { MagazineIssue } from "@/types";
 import { ArrowRight, BookOpen, Crown, FileCheck, Layers } from "lucide-react";

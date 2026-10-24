@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, BookOpen, Clock, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Clock, ShieldCheck } from "lucide-react";
 import ImageReveal from "@/components/ui/ImageReveal";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";

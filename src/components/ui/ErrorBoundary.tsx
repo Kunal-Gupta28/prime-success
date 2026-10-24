@@ -3,7 +3,6 @@
 import React, { Component, ErrorInfo, ReactNode } from "react";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import BrandCrown from "@/components/ui/BrandCrown";
-import Button from "@/components/ui/Button";
 
 interface Props {
   children: ReactNode;

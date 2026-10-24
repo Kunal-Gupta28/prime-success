@@ -1,7 +1,6 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/animations/Reveal";
 import Parallax from "@/components/animations/Parallax";
-import GoldDivider from "@/components/ui/GoldDivider";
 import { Crown, Sparkles, Building, Globe } from "lucide-react";
 
 export default function PatronageSection() {

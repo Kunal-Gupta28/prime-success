@@ -1,6 +1,6 @@
 "use client";
 
-import { X, Play, Clock, Share2, Award } from "lucide-react";
+import { X } from "lucide-react";
 import { Interview } from "@/types";
 
 interface Props {

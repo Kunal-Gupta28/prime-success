@@ -1,10 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { X, Download } from "lucide-react";
 import { MagazineIssue } from "@/types";
-import MagazineBookReader from "./MagazineBookReader";
 import { useLenis } from "@/components/layout/SmoothScroll";
+
+const MagazineBookReader = dynamic(() => import("./MagazineBookReader"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex-1 flex flex-col items-center justify-center gap-4 text-cream/70 py-24">
+      <div className="w-8 h-8 border-2 border-royal-gold/30 border-t-royal-gold rounded-full animate-spin" />
+      <span className="text-xs uppercase tracking-widest font-sans">Initializing Digital Reader...</span>
+    </div>
+  ),
+});
 
 interface Props {
   issue: MagazineIssue;

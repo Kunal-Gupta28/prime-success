@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, Clock, Calendar, Share2 } from "lucide-react";
+import { ChevronLeft, Clock, Calendar } from "lucide-react";
 import { articlesData } from "@/data/mockData";
 import GoldDivider from "@/components/ui/GoldDivider";
 import NominationCTA from "@/components/sections/NominationCTA";

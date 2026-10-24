@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Vote, CheckCircle2, ShieldCheck, TrendingUp, Sparkles, ChevronRight } from "lucide-react";
+import { CheckCircle2, ShieldCheck, TrendingUp, Sparkles, ChevronRight } from "lucide-react";
 import BrandCrown from "@/components/ui/BrandCrown";
 import { surveysData } from "@/data/mockData";
 

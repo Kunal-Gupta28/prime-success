@@ -5,8 +5,7 @@ node_modules
 .git
 .gitignore
 .github
-README.md
-handover.md
+*.md
 .claude
 .impeccable
 .vercel
@@ -17,5 +16,6 @@ handover.md
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env*.local
+.env*
 tsconfig.tsbuildinfo
+data

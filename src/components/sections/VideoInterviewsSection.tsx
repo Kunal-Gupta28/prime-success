@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Video, Play, Sparkles } from "lucide-react";
+import { Video } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const INTERVIEWS = [

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, BookOpen, ShieldCheck, ChevronLeft } from "lucide-react";
+import { Download, BookOpen, ChevronLeft } from "lucide-react";
 import { MagazineIssue } from "@/types";
 
 interface Props {

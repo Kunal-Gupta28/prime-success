@@ -30,7 +30,6 @@ export default function SurveysPage() {
   const [polls, setPolls] = useState<SurveyPoll[]>(surveysData);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
   const [votedPolls, setVotedPolls] = useState<Record<string, boolean>>({});
-  const [totalUserVotes, setTotalUserVotes] = useState(0);
 
   const totalCategories = new Set(polls.map((poll) => poll.category)).size;
   const liveCount = polls.filter((p) => getStatus(p) === "live").length;
@@ -57,7 +56,6 @@ export default function SurveysPage() {
     );
 
     setVotedPolls((prev) => ({ ...prev, [pollId]: true }));
-    setTotalUserVotes((prev) => prev + 1);
   };
 
   return (

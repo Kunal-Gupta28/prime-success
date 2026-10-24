@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Home, Compass } from "lucide-react";
+import { Home, Compass } from "lucide-react";
 import BrandCrown from "@/components/ui/BrandCrown";
 
 export default function NotFound() {
